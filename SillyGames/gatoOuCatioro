@@ -1,0 +1,103 @@
+import random
+
+#ASCII art
+arte_gato = ["""
+  |\__/,|   (`(
+ |_ _  |.--.) )
+ ( T   )     /
+(((^_(((/(((_/
+""",
+
+""" /\_____/\
+   /  o   o  \
+  ( ==  ^  == )
+   )         (
+  (           )
+ ( (  )   (  ) )
+(__(__)___(__)__)
+""",
+
+"""
+/\_/\
+( o.o )
+ > ^ <
+""",
+
+"""
+ |\---/|
+   | ,_, |
+    \_`_/-..----.
+ ___/ `   ' ,""+ \  sk
+(__...'   __\    |`.___.';
+  (_,...'(_,.`__)/'.....+
+  """
+]
+
+arte_cachorro = ["""
+   __      _
+o'')}____//
+ `_/      )
+ (_(_/-(_/
+""",
+
+"""
+             .--~~,__
+:-....,-------`~~'._.'
+ `-,,,  ,_      ;'~U'
+  _,-' ,'`-__; '--.
+ (_/'~~      ''''(;
+ """,
+
+ """
+,-.___,-.
+\_/_ _\_/
+  )O_O(
+ { (_) }
+  `-^-' 
+ """,
+
+ """
+ _   _
+/(. .)\    )
+  (*)____/|
+  /       |
+ /   |--\ |
+(_)(_)  (_)
+ """
+]
+def display_pet():
+    pets = ['gato', 'cachorro']
+    pet = random.choice(pets)
+
+    if pet == 'gato':
+        art = random.choice(arte_gato)
+        print(art)
+    else:
+        art = random.choice(arte_cachorro)
+        print(art)
+
+    return pet
+
+def guess_pet(pet):
+    guess = input("GATO OU CACHORRO? ").lower()
+    
+    if guess == pet:
+        print("Acertou :D!\n")
+    else:
+        print(f"Ixi, era um {pet}! Boa sorte na próxima..\n")
+
+def play_quiz():
+    print("Bem vindo ao quiz: É GATO OU CATIORO?")
+    print("Você tem que tentar acertar que o desenho é um gato ou um cachorro.")
+    
+    while True:
+        pet = display_pet()
+        guess_pet(pet)
+
+        play_again = input("Quer brincar de novo? (sim/nom) ").lower()
+        if play_again != 'sim':
+            print("Brigado por jogar! Bye bye")
+            break
+
+if __name__ == "__main__":
+    play_quiz()
